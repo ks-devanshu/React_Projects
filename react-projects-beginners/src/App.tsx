@@ -1,8 +1,8 @@
 import './App.css'
-import TypingSpeedTest from './components/TypingSpeedTester/TypingSpeedTest';
+import QuizApp from './components/QuizApp/QuizApp';
 
 const App = () => {
-  return <TypingSpeedTest />
+  return <QuizApp />
 }
 
 export default App;
