@@ -1,8 +1,8 @@
 import './App.css'
-import QuizApp from './components/QuizApp/QuizApp';
+import SurveyForm from './components/SurveyForm/SurveyForm';
 
 const App = () => {
-  return <QuizApp />
+  return <SurveyForm />
 }
 
 export default App;
