@@ -1,8 +1,8 @@
 import './App.css'
-import CreditCardValidator from './components/CreditCardValidator/CreditCardValidator';
+import StrongPasswordValidator from './components/StrongPassValidator/StrongPassValidator';
 
 const App = () => {
-  return <CreditCardValidator />
+  return <StrongPasswordValidator />
 }
 
 export default App;
