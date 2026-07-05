@@ -1,8 +1,8 @@
 import './App.css'
-import SurveyForm from './components/SurveyForm/SurveyForm';
+import CreditCardValidator from './components/CreditCardValidator/CreditCardValidator';
 
 const App = () => {
-  return <SurveyForm />
+  return <CreditCardValidator />
 }
 
 export default App;
