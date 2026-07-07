@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import validator from 'validator';
 
 export type BasicDetailsShape = {
 	name:string,
@@ -15,6 +16,10 @@ interface BasicDetailsProps {
 }
 
 const BasicDetails = ( {props:{name, setName, email, setEmail, contact, setContact, setCurrentPage}} : BasicDetailsProps ) => {
+
+  const [mailError, setMailError] = useState('');
+  const [contactError, setContactError] = useState('');
+  const [nameError, setNameError] = useState('');
   const nameRef = useRef<HTMLInputElement>(null);
   const mailRef = useRef<HTMLInputElement>(null);
   const contactRef = useRef<HTMLInputElement>(null);
@@ -23,11 +28,26 @@ const BasicDetails = ( {props:{name, setName, email, setEmail, contact, setConta
     <div className="bg-yellow-100 shadow-xl rounded-xl flex flex-col w-150 mx-auto mt-20 p-5">
       <h2 className="font-bold text-5xl my-4">Basic Details</h2>
       <h3 className="font-bold text-2xl my-2">1. <span className="font-normal">Name</span></h3>
-      <input ref={nameRef} className="p-3 h-8 bg-gray-200 rounded-l" type="text" name="name" defaultValue={name}/>
+      <input ref={nameRef} className="p-3 h-8 bg-gray-200 rounded-l" type="text" name="name" onFocus={ (event) => {
+        setNameError(!validator.isEmpty(event.target.value)+'');
+      } } onChange={ (event) => {
+        setNameError(validator.isLength(event.target.value, 3)+"");
+      } } defaultValue={name}/>
+      {nameError === 'false' && <p className="text-red-500">Not a valid name</p>}
       <h3 className="font-bold text-2xl my-2">2. <span className="font-normal">Email</span></h3>
-      <input ref={mailRef} className="p-3 h-8 bg-gray-200 rounded-l" type="text" name="email" defaultValue={email} />
+      <input ref={mailRef} className="p-3 h-8 bg-gray-200 rounded-l" type="text" name="email" onFocus={ (event) => {
+        setMailError(!validator.isEmpty(event.target.value)+'');
+      } } onChange={ (event) => {
+        setMailError(validator.isEmail(event.target.value)+'');
+      } } defaultValue={email} />
+      {mailError === 'false' && <p className="text-red-500">Not a valid email</p>}
       <h3 className="font-bold text-2xl my-2">3. <span className="font-normal">Contact</span></h3>
-      <input ref={contactRef} className="p-3 h-8 bg-gray-200 rounded-l" type="text" name="contact" defaultValue={contact}/>
+      <input ref={contactRef} className="p-3 h-8 bg-gray-200 rounded-l" type="text" name="contact" onFocus={ (event) => {
+        setContactError(!validator.isEmpty(event.target.value)+'');
+      } } onChange={ (event) => {
+        setContactError(validator.isMobilePhone(event.target.value)+'');
+      } } defaultValue={contact}/>
+      {contactError === 'false' && <p className="text-red-500">Not a valid contact</p>}
       <button className="bg-green-400 text-white rounded-l font-bold cursor-pointer my-4 w-25 h-8" onClick={() => {
         if (nameRef.current && mailRef.current && contactRef.current && nameRef.current.value && mailRef.current.value && contactRef.current.value) {
           setName(nameRef.current.value);

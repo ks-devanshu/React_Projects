@@ -1,8 +1,8 @@
 import './App.css'
-import TenziesGame from './components/TenziesGame/TenziesGame';
+import SurveyForm from './components/SurveyForm/SurveyForm';
 
 const App = () => {
-  return <TenziesGame />
+  return <SurveyForm />
 }
 
 export default App;
