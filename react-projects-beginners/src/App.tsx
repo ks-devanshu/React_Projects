@@ -1,8 +1,8 @@
 import './App.css'
-import MemoryGame from './components/MemoryGame/MemoryGame';
+import TenziesGame from './components/TenziesGame/TenziesGame';
 
 const App = () => {
-  return <MemoryGame />
+  return <TenziesGame />
 }
 
 export default App;
