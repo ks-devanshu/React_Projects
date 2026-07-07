@@ -1,8 +1,8 @@
 import './App.css'
-import StrongPasswordValidator from './components/StrongPassValidator/StrongPassValidator';
+import MemoryGame from './components/MemoryGame/MemoryGame';
 
 const App = () => {
-  return <StrongPasswordValidator />
+  return <MemoryGame />
 }
 
 export default App;
