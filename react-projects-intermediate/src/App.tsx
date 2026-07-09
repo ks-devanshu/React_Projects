@@ -1,9 +1,9 @@
 import './App.css'
-import ExpenseTracker from './components/ExpenseTracker/ExpenseTracker';
+import TasksScheduler from './components/TasksScheduler/TasksScheduler';
 
 const App = () => {
   return (
-    <ExpenseTracker />
+    <TasksScheduler />
   )
 }
 
