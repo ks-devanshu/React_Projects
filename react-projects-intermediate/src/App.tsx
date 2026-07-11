@@ -1,9 +1,9 @@
 import './App.css'
-import TasksScheduler from './components/TasksScheduler/TasksScheduler';
+import CryptoCurrency from './components/CryptoCurrencyApp/CryptoCurrencyApp';
 
 const App = () => {
   return (
-    <TasksScheduler />
+    <CryptoCurrency />
   )
 }
 
